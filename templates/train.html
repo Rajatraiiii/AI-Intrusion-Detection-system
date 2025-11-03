@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Models - AI-Powered IDS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="animated-header">
+            <div class="header-icon-wrapper">
+                <div class="header-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="icon-glow"></div>
+            </div>
+            <h1><span class="gradient-text">AI-Powered</span> Intrusion Detection System</h1>
+            <p class="header-subtitle">Advanced Machine Learning-Based Network Security Analysis</p>
+        </header>
+
+        <nav class="tabs" style="margin-top:-10px;">
+            <a class="tab-btn active" href="/train"><i class="fas fa-graduation-cap"></i><span>Train Models</span><div class="tab-indicator"></div></a>
+            <a class="tab-btn" href="/predict"><i class="fas fa-search"></i><span>Predict Traffic</span><div class="tab-indicator"></div></a>
+            <a class="tab-btn" href="/evaluate"><i class="fas fa-chart-bar"></i><span>Evaluation</span><div class="tab-indicator"></div></a>
+        </nav>
+
+        <div class="card card-animated">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="card-icon-glow"></div>
+                </div>
+                <div>
+                    <h2><span class="gradient-text">Train</span> Machine Learning Models</h2>
+                    <p class="card-description">Upload your dataset to train advanced intrusion detection models</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-icon-wrapper"><i class="fas fa-info-circle"></i></div>
+                <div>
+                    <strong>Supported Datasets:</strong> CICIDS 2017, UNSW-NB15, NSL-KDD (CSV)
+                    <br>
+                    <small>The system will automatically preprocess and train multiple ML models</small>
+                </div>
+            </div>
+
+            <form id="trainForm" enctype="multipart/form-data" class="upload-form">
+                <div class="file-upload-container">
+                    <div class="file-upload-box" id="fileUploadBox">
+                        <div class="upload-icon-wrapper">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <div class="upload-glow"></div>
+                        </div>
+                        <p><strong>Drag & Drop</strong> your CSV file here</p>
+                        <p class="file-upload-subtext">or <span class="highlight-text">click to browse</span></p>
+                        <input type="file" id="dataset" name="file" accept=".csv" required>
+                    </div>
+                    <div class="file-info" id="fileInfo"></div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play"></i>
+                        <span>Start Training</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </div>
+            </form>
+
+            <div id="trainProgress" class="progress-container" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"><div class="progress-glow"></div></div>
+                </div>
+                <p class="progress-text" id="progressText">Initializing...</p>
+            </div>
+
+            <div id="trainStatus" class="status"></div>
+            <div id="trainResults" class="results-container"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
